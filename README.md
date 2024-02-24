@@ -1,5 +1,7 @@
 # Rate limiter
 
+Copyright (c) 2024 Tuyen Phan
+
 A simple python implementation of a general purpose rate limiter.
 
 Example:
