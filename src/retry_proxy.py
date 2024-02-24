@@ -1,4 +1,3 @@
-from client import Client
 from rate_limit import Bucket, Period as Per, RateLimiter
 import random
 import time
