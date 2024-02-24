@@ -49,15 +49,3 @@ class RetryProxy(object):
           interval = interval * policy.multiplier + random_value
 
     return execute
-
-
-if __name__ == "__main__":
-  rate_of = Bucket.builder()
-  limiter = RateLimiter(per_second=rate_of(3, Per.SECOND),
-                        per_minute=rate_of(10, Per.MINUTE))
-  client = Client(limiter)
-  policy = RetryPolicy(attempts=4, interval=1, multiplier=1.5, randomness=2.0)
-  proxy = RetryProxy(client, policy)
-
-  for i in range(100):
-    proxy.send(i)
